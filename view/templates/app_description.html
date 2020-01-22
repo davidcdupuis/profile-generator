@@ -1,0 +1,66 @@
+<div class="row variable">
+    <div class="col-sm-5" style="padding-left: 1em;">
+      <p class="h2">App Info</p>
+      <table class="table table-condensed stats">
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <td>{{ app.id }}</td>
+          </tr>
+          <tr>
+            <th>Ad Networks</th>
+            <td>
+              {% for network in app.ad_networks %}
+                {{ network }}
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <th>Monetization Networks</th>
+            <td>
+              {% for network in app.monet_networks %}
+                {{ network }}
+              {% endfor %}
+            </td>
+          </tr>
+          <tr>
+            <th>Platforms</th>
+            <td>
+              {% for platform in app.platforms %}
+                {{ platform }}
+              {% endfor %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-6 col-sm-offset-1">
+      <p class="h2">Dataset Info</p>
+      <table class="table table-condensed stats">
+        <tbody>
+          <tr>
+            <th>Date Range</th>
+            <td>{{ df.date_range }}</td>
+          </tr>
+          <tr>
+            <th>Number of rows</th>
+            <td>{{ df.rows }}</td>
+          </tr>
+          <tr>
+            <th>Number of columns</th>
+            <td>{{ df.columns }}</td>
+          </tr>
+          <tr>
+            <th>LTV D</th>
+            <td>{{ df.xday }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+<!-- <div style="color:orange; font-size:16px">
+  <ul>
+    <li> {{ id }} </li>
+    <li> {{ title }} | {{ monet_network }} | {{ platforms }}</li>
+  </ul>
+</div> -->

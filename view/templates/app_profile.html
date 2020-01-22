@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="David Dupuis and HomaGames Data Team">
+      <meta name="generator" content="LTV App Profiling {{ version }}" />
+      <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
+      <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
+      <!--<link rel="stylesheet" type="text/css" href="assets/style.css"/>-->
+      <style>
+        body {
+          padding-top: 80px;
+        }
+        {% include 'assets/style.css' %}
+      </style>
+      <title>{{ app.name }} - {{ app.title }}</title>
+  </head>
+  <body>
+    {% include 'navigation.html' %}
+    <div class="content">
+      <div class="container">
+        <div class="row header">
+          <a class="anchor-pos"></a>
+          <h1 class="page-header">{{ app.name }}</h1>
+        </div>
+        {% include 'app_description.html'%}
+        <div class="row header">
+          <a class="anchor-pos" id=""></a>
+          <h1 class="page-header">Countries</h1>
+        </div>
+        {% for country in countries %}
+          {% include "country_description.html"  %}
+        {% endfor %}
+      </div>
+    </div>
+    <footer>
+      <div class="container-fluid">
+          <div class="row center-block footer-text">
+              <p class="text-muted text-center">Report generated with profile-generator.</p>
+          </div>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $("a[href^='#'].anchor").on('click', function (e) {
+
+            // prevent default anchor click behavior
+            e.preventDefault();
+
+            // store hash
+            var hash = this.hash;
+
+            // animate
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 300, function () {
+
+                // when done, add hash to url
+                // (default click behaviour)
+                window.location.hash = hash;
+            });
+
+        });
+    </script>
+  </body>
+</html>

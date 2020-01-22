@@ -1,0 +1,52 @@
+<div class="row variable" id="US">
+  <div class="col-sm-3">
+    <p class="h4" title="United-States">
+      {{ country.name }}
+      <br>
+      <small>{{ country.id }}</small>
+    </p>
+  </div>
+  <!-- TOGGLE DETAILS -->
+  <div class="col-sm-12 text-right">
+    <a role="button" data-toggle="collapse" data-target="#description{{ country.id }}" aria-expanded="false" aria-controls="collapseExample"> Toggle details </a>
+  </div>
+  <div class="row col-sm-12 collapse" id="description{{ country.id }}" aria-expanded="false" style="height:0px;">
+    <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+              <a href="#{{ country.id }}-ltvOverTime"
+                 aria-controls="1-ltvOverTime"
+                 role="tab"
+                 data-toggle="tab">LTV over Time</a>
+          </li>
+          <li role="presentation">
+              <a href="#{{ country.id }}-installsOverTime"
+                 aria-controls="#1-installsOverTime"
+                 role="tab"
+                 data-toggle="tab">Installs over Time</a>
+          </li>
+          <li role="presentation">
+              <a href="#{{ country.id }}-cumulrevOverTime"
+                 aria-controls="1-cumulrevOverTime"
+                 role="tab"
+                 data-toggle="tab">Cumul-Revenue over Time</a>
+          </li>
+    </ul>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane col-sm-12 active" id="{{ country.id }}-ltvOverTime">
+        <!-- LTV OVER TIME IMAGE -->
+        <img src="data:image/png;base64, {{ country.ltvTimeImg }}"\>
+      </div>
+      <div role="tabpanel" class="tab-pane col-sm-12" id="{{ country.id }}-installsOverTime">
+        <!-- Installs OVER TIME IMAGE -->
+        <img src="data:image/png;base64, {{ country.installsTimeImg }}"\>
+      </div>
+      <div role="tabpanel" class="tab-pane col-sm-12" id="{{ country.id }}-cumulrevOverTime">
+        <!-- Cumul-Revenue OVER TIME IMAGE -->
+        <img src="data:image/png;base64, {{ country.cumulRevTimeImg }}"\>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div >
+  {{ name }} | {{ id }}
+</div> -->
